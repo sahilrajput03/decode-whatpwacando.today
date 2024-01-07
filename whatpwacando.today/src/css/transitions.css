@@ -1,0 +1,177 @@
+@supports (view-transition-name: content) {
+  :root {
+    --page-transition-animation-duration: 300ms;
+    --page-transition-animation-timing-function: cubic-bezier(
+      0.465,
+      0.183,
+      0.153,
+      0.946
+    );
+  }
+
+  #main-footer {
+    contain: layout;
+    view-transition-name: main-footer;
+    z-index: 2;
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fade-out {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+
+  @keyframes slide-out {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-20%);
+    }
+  }
+
+  @keyframes slide-out-reverse {
+    from {
+      transform: translateX(-20%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes slide-in {
+    from {
+      transform: translateX(100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes slide-in-reverse {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(100%);
+    }
+  }
+
+  ::view-transition-new(root),
+  ::view-transition-old(root) {
+    animation-duration: var(--page-transition-animation-duration);
+    animation-timing-function: var(--page-transition-animation-timing-function);
+    animation-direction: normal;
+  }
+
+  ::view-transition-old(root) {
+    animation-name: slide-out;
+  }
+
+  ::view-transition-new(root) {
+    animation-name: slide-in;
+    mix-blend-mode: normal;
+  }
+
+  .back-transition::view-transition-new(root) {
+    animation-name: slide-out-reverse;
+  }
+
+  .back-transition::view-transition-old(root) {
+    animation-name: slide-in-reverse;
+    mix-blend-mode: normal;
+    z-index: 1;
+  }
+
+  .reload-transition::view-transition-new(root) {
+    animation-name: fade-in;
+    animation-duration: calc(2 * var(--page-transition-animation-duration));
+  }
+
+  .reload-transition::view-transition-old(root) {
+    animation-name: fade-out;
+  }
+
+  @media screen and (min-width: 1024px) {
+    ::view-transition-old(root) {
+      animation-name: fade-out;
+    }
+
+    ::view-transition-new(root) {
+      animation-name: fade-in;
+    }
+
+    .back-transition::view-transition-old(root) {
+      animation-name: fade-out;
+    }
+
+    .back-transition::view-transition-new(root) {
+      animation-name: fade-in;
+    }
+  }
+
+  /*overrides*/
+  html,
+  body {
+    height: auto;
+  }
+
+  #main-content {
+    height: auto;
+  }
+
+  #main-header,
+  material-app-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  #main-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .view {
+    position: static;
+  }
+
+  .view::after {
+    display: none;
+  }
+
+  .view.next-screen {
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+  .view.active + .view.next-screen,
+  .view.next-screen + .view.next-screen {
+    pointer-events: auto !important;
+  }
+
+  .view .content {
+    margin-top: 60px;
+    margin-bottom: 60px;
+    height: auto;
+    overflow-y: unset;
+  }
+}

@@ -1,0 +1,121 @@
+h1 {
+  font-size: 1.8em;
+  margin: 10px 0 0 0;
+}
+
+h1 + p,
+h2 + p {
+  margin: 10px 0 10px 0;
+}
+
+#install-button {
+  --button-color: var(--base-3);
+  --button-color-hover: var(--base-1);
+  --font-size: 1.2em;
+}
+
+#installed {
+  display: none;
+}
+
+@media all and (display-mode: standalone) {
+  #installation {
+    display: none;
+  }
+
+  #installed {
+    display: block;
+  }
+}
+
+.feature-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.feature-grid::after {
+  content: "";
+  flex-basis: 21%;
+  /*flex-basis: 47%;*/
+}
+
+.feature {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 21%;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.feature a {
+  color: var(--base-font-color);
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+}
+
+.feature aside {
+  display: flex;
+  min-height: 1.5rem;
+}
+
+.feature aside header {
+  font-size: 10px;
+  text-align: center;
+}
+
+.feature aside p {
+  display: none;
+}
+
+.feature material-button {
+  --icon-size: 3em;
+  --button-padding: 8px 12px 8px 12px;
+  --button-color: var(--base-3);
+  --button-color-hover: var(--base-1);
+  --border-radius: 8px;
+}
+
+@media screen and (min-width: 1024px) {
+  .feature-grid {
+    justify-content: flex-start;
+  }
+
+  .feature {
+    flex-direction: row;
+    flex-basis: 33%;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-bottom: 30px;
+  }
+
+  .feature a {
+    display: flex;
+  }
+
+  .feature aside {
+    flex-direction: column;
+  }
+
+  .feature aside header {
+    font-size: 22px;
+    text-align: start;
+  }
+
+  .view .feature aside p {
+    display: block;
+    font-size: 0.8em;
+    line-height: 1.1rem;
+    margin-block-start: 0.5em;
+    max-width: 45ch;
+  }
+
+  .feature material-button {
+    --icon-size: 5em;
+    margin-right: 15px;
+  }
+}

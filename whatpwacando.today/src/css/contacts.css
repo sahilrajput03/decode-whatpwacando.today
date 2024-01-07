@@ -1,0 +1,14 @@
+#contacts {
+  min-height: 170px;
+  border: 1px solid #cccccc;
+  overflow: scroll;
+}
+
+#contacts span {
+  display: flex;
+  margin: 5px;
+}
+
+#contacts span i {
+  margin-right: 8px;
+}

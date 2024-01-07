@@ -1,0 +1,14 @@
+face-detector {
+  margin-top: 20px;
+  width: 100%;
+}
+
+#facial-features {
+  margin-block: 0.5rem;
+}
+
+@media screen and (min-width: 1024px) {
+  face-detector {
+    width: 50%;
+  }
+}

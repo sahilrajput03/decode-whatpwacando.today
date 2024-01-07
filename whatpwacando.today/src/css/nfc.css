@@ -1,0 +1,24 @@
+#preview {
+  width: 150px;
+  min-height: 200px;
+  background-color: #cccccc;
+  margin-bottom: 10px;
+}
+
+#preview img {
+  height: 100%;
+}
+#nfc material-textfield {
+  --margin: 1rem 0;
+}
+
+#nfc material-button {
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+#nfc-buttons {
+  display: flex;
+  flex-shrink: 0;
+  margin-top: 20px;
+}

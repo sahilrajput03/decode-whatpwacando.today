@@ -1,0 +1,15 @@
+.icon-row {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 0;
+}
+
+.icon-row material-button {
+  --icon-size: 48px;
+}
+
+@media all and (display-mode: standalone) {
+  #mediarecorder-support {
+    display: none;
+  }
+}

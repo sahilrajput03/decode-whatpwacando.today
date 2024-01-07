@@ -1,0 +1,24 @@
+.web-share material-textfield:not(:first-of-type) {
+  --margin: 0 0 2.25rem 0;
+}
+
+#file-picker {
+  margin-right: 20px;
+  margin-bottom: 20px;
+  min-width: 140px;
+}
+
+#file-section {
+  display: flex;
+}
+
+#file-name {
+  display: block;
+  flex-grow: 1;
+  padding-top: 5px;
+}
+
+#shared-content {
+  height: 200px;
+  border: 1px solid #cccccc;
+}

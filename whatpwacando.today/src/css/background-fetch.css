@@ -1,0 +1,53 @@
+.tracklist {
+  list-style-type: none;
+  padding-left: 0;
+  width: 100%;
+  max-width: 40ch;
+}
+
+.tracklist li {
+  border-bottom: 1px solid #000000;
+}
+
+.tracklist li img {
+  margin-right: 8px;
+}
+
+.tracklist li span {
+  display: flex;
+  padding-bottom: 8px;
+}
+
+.tracklist .track-info {
+  flex-direction: column;
+}
+
+.tracklist .track-info span:first-child {
+  font-weight: bold;
+}
+
+.tracklist .track-info span + span {
+  margin-top: 8px;
+}
+
+.tracklist material-button {
+  --button-color: transparent;
+  --button-color-hover: transparent;
+  margin-left: auto;
+  align-self: center;
+}
+
+.tracklist material-progress {
+  --progress-bar-color: var(--base-font-color);
+  margin-left: auto;
+  align-self: center;
+  display: none;
+}
+
+.tracklist li.active material-button {
+  display: none;
+}
+
+.tracklist li.active material-progress {
+  display: block;
+}

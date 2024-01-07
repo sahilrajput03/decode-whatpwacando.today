@@ -1,0 +1,12 @@
+image-gallery {
+  margin: auto;
+}
+
+#buttons material-button + material-button {
+  margin-left: 0.5rem;
+}
+
+#preview {
+  width: 70%;
+  border: 1px solid #eeeeee;
+}

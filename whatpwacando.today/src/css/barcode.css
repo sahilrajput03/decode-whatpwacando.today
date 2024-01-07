@@ -1,0 +1,22 @@
+barcode-reader {
+  margin-top: 20px;
+  width: 100%;
+}
+
+@media screen and (min-width: 1024px) {
+  barcode-reader {
+    width: 50%;
+  }
+}
+
+#scan-button {
+  margin-right: 10px;
+}
+
+#code-dialog footer {
+  display: flex;
+}
+
+#code-dialog footer material-button:first-of-type {
+  margin-right: 10px;
+}

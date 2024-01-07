@@ -1,0 +1,18 @@
+#ar-container {
+  text-align: center;
+}
+.image-model {
+  width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+  .image-model {
+    width: 50%;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .image-model {
+    width: 30%;
+  }
+}

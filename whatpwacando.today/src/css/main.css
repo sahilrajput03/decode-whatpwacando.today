@@ -1,0 +1,295 @@
+.view {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  min-height: 100%;
+  background-color: var(--main-background);
+  transform: translateX(0%);
+  will-change: transform;
+  opacity: 1;
+  z-index: 1;
+  overflow-x: hidden;
+  transition: transform 0.3s cubic-bezier(0.465, 0.183, 0.153, 0.946);
+}
+
+.view::after {
+  content: "";
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000000;
+  opacity: 0;
+}
+
+.view.prev-screen {
+  z-index: 0;
+  transform: translateX(-20%);
+  position: relative;
+}
+
+.view.next-screen {
+  transform: translateX(100%);
+}
+
+.view.active::after {
+  display: none;
+}
+
+.view.prev-screen::after {
+  animation-name: fadein;
+  animation-duration: 0.3s;
+  animation-timing-function: ease-out;
+}
+
+.view.current::after {
+  animation-name: fadeout;
+  animation-duration: 0.3s;
+  animation-timing-function: ease-out;
+}
+
+@media screen and (min-width: 1024px) {
+  .view,
+  .view.prev-screen,
+  .view.next-screen {
+    transform: none;
+  }
+
+  .view {
+    transition: opacity 0.3s cubic-bezier(0.465, 0.183, 0.153, 0.946);
+  }
+
+  .view.prev-screen,
+  .view.next-screen {
+    opacity: 0;
+  }
+}
+
+/* .view.next-screen stays in DOM, so remove pointer-events */
+.view.active + .view.next-screen,
+.view.next-screen + .view.next-screen {
+  pointer-events: none;
+}
+
+.view .content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  padding: 15px;
+  height: 1px;
+  overflow-y: auto;
+}
+
+.view .content p {
+  max-width: 80ch;
+}
+
+.documentation {
+  margin-top: 25px;
+}
+
+@supports (padding: max(0px)) {
+  @media screen and (orientation: landscape) and (max-width: 812px) {
+    .view .content {
+      padding-left: env(safe-area-inset-left);
+      padding-right: env(safe-area-inset-right);
+    }
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .view .content {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 0.25;
+  }
+}
+
+@keyframes fadeout {
+  from {
+    opacity: 0.25;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+material-app-bar {
+  --app-bar-background: var(--base-1);
+}
+
+a.back,
+a.back:visited,
+a.back:active {
+  color: var(--base-font-color);
+}
+
+.view.home {
+  background-color: var(--main-background);
+}
+
+.view h2 {
+  margin: 20px 0 10px 0;
+  font-size: var(--h2-font-size);
+}
+
+.view h3 {
+  margin-bottom: 0;
+  font-size: var(--h3-font-size);
+}
+
+.view h3 + p {
+  margin-top: 5px;
+}
+
+.view p {
+  font: var(--p-font-size);
+  line-height: 1.5rem;
+}
+
+.img {
+  text-align: center;
+}
+
+.img img {
+  border: 1px solid #cccccc;
+}
+
+.no-support {
+  color: #ff0000;
+  font-style: italic;
+}
+
+.partial-support {
+  color: orange;
+  font-style: italic;
+}
+
+@media (prefers-color-scheme: dark) {
+  .no-support {
+    color: #ffa600;
+  }
+}
+
+ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+li {
+  margin-bottom: 10px;
+}
+
+.error {
+  color: #ff0000;
+  font-weight: bold;
+}
+
+#contact-form textarea {
+  width: 95%;
+  resize: none;
+  border-radius: 2px;
+  border: 1px solid #cecece;
+  background-color: var(--main-background);
+}
+
+#contact-form material-button {
+  --font-color: var(--base-font-color);
+  --button-color: var(--base-1);
+}
+
+#contact-form material-textfield:first-of-type {
+  --margin: 1rem 0 2.25rem 0;
+}
+
+.flex {
+  display: flex;
+  flex-direction: row;
+}
+
+#result {
+  padding-left: 10px;
+}
+
+textarea {
+  font-size: 1em;
+  color: var(--base-font-color);
+}
+
+a,
+a:visited,
+a:active {
+  color: var(--base-link-color);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.code {
+  position: relative;
+  margin-top: 1.5em;
+}
+
+code {
+  border: 1px solid #cccccc;
+  display: inline-block;
+  padding-inline: 0.2rem;
+  border-radius: 5px;
+  line-height: 1.5;
+  color: var(--font-color);
+  word-break: break-word;
+}
+
+.copy-code {
+  position: absolute;
+  top: 0;
+  right: 0;
+  --button-color: transparent;
+}
+
+@media screen and (min-width: 1024px) {
+  code {
+    white-space: nowrap;
+    word-break: normal;
+  }
+
+  device-orientation,
+  device-motion {
+    width: 50%;
+    margin: 0 auto;
+  }
+
+  multi-touch {
+    margin: 0 auto;
+  }
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+#send {
+  margin-top: 0.5em;
+}
+
+[hidden] {
+  display: none !important;
+}

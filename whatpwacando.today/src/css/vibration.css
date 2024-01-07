@@ -1,0 +1,61 @@
+#pattern-maker {
+  width: 99.5%;
+  min-height: 200px;
+  border: 1px solid #000000;
+}
+
+#pattern-visualizer {
+  display: flex;
+  width: 100%;
+  min-height: 11px;
+  border: 1px solid #000000;
+  border-radius: 3px;
+  box-sizing: border-box;
+  margin-bottom: 3px;
+  overflow: hidden;
+}
+
+#buttons {
+  display: flex;
+  flex-shrink: 0;
+  margin-bottom: 10px;
+}
+
+#play {
+  margin: 0 10px;
+}
+.on {
+  height: 9px;
+  background-color: green;
+  display: inline-block;
+}
+
+.off {
+  height: 9px;
+  background-color: red;
+  display: inline-block;
+}
+
+#ripple {
+  display: none;
+  position: absolute;
+  border: 1px solid red;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  animation: enlarge 0.15s infinite linear;
+  transform-origin: center center;
+  pointer-events: none;
+}
+
+@keyframes enlarge {
+  from {
+    width: 0px;
+    height: 0px;
+    opacity: 0.8;
+  }
+  to {
+    width: 150px;
+    height: 150px;
+    opacity: 0.4;
+  }
+}

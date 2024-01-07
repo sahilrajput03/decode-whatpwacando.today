@@ -1,0 +1,46 @@
+#storage-stats {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  border-collapse: collapse;
+}
+
+@media screen and (min-width: 1024px) {
+  #storage-stats {
+    max-width: 60ch;
+  }
+}
+
+#storage-stats th {
+  text-align: left;
+  padding: 0.5rem;
+}
+
+#storage-stats td:last-child {
+  text-align: right;
+}
+
+#storage-stats td {
+  border: 1px solid #cccccc;
+  padding: 0.5rem;
+}
+
+#has-persistent-storage,
+#no-persistent-storage {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+}
+
+#has-persistent-storage .material-icons {
+  color: darkgreen;
+  margin-right: 0.5rem;
+}
+
+#no-persistent-storage .material-icons {
+  color: red;
+  margin-right: 0.5rem;
+}
+
+#request-persistent-storage-button {
+  margin-bottom: 1rem;
+}

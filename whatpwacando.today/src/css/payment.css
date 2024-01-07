@@ -1,0 +1,4 @@
+#apple-pay-button {
+  -webkit-appearance: -apple-pay-button;
+  cursor: pointer;
+}

@@ -1,0 +1,5 @@
+#battery-indicator {
+  --progress-bar-color: var(--base-1);
+  --progress-bar-width: 90%;
+  --progress-background: var(--base-2);
+}

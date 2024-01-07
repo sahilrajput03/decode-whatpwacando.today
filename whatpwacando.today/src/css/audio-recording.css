@@ -1,0 +1,27 @@
+audio-recorder {
+  width: 100%;
+  --border: 1px solid #cccccc;
+  /*--waveform-background-color: #cccccc;*/
+}
+
+audio-recorder::part(slider) {
+  --track-color: #000000;
+  --thumb-color: #000000;
+  --thumb-size: 1.5em;
+}
+
+@media screen and (min-width: 1024px) {
+  audio-recorder {
+    width: 70%;
+  }
+
+  audio-recorder::part(slider) {
+    --thumb-size: 1em;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  audio-recorder {
+    width: 50%;
+  }
+}
